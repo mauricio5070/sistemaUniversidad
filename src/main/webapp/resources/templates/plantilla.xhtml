@@ -13,12 +13,25 @@
     </h:head>
 
     <h:body>
-
         <div id="top" class="top">
             <ui:insert name="top">
                 <b:navBar class="nav" inverse="false" fluid="true" brand="Sistema" brand-href="#{request.contextPath}/faces/principal.xhtml">
                     <b:navbarLinks pull="left">
                         <b:image library="images" name="Logo.png" style="height: 75px"/>
+                    </b:navbarLinks>
+                    <b:navbarLinks>
+                        <b:dropMenu value="Estudiantes" icon-awesome="fa-group">
+                            <b:navLink value="Gestión" icon-awesome="fa-newspaper-o"
+                                       href="#{request.contextPath}/faces/estudiante/list.xhtml"/>                            
+                        </b:dropMenu>
+                        <b:dropMenu value="Prospecto" icon-awesome="fa-group">
+                            <b:navLink value="Registro" icon-awesome="fa-newspaper-o"
+                                       href="#{request.contextPath}/faces/prospecto/registro.xhtml"/>
+                            <b:navLink value="Reporte" icon-awesome="fa-newspaper-o"
+                                       href="#{request.contextPath}/faces/prospecto/reporte.xhtml"/>
+                            <b:navLink value="Json" icon-awesome="fa-newspaper-o"
+                                       href="#{request.contextPath}/faces/prospecto/prospecto_json.xhtml"/>
+                        </b:dropMenu>
                     </b:navbarLinks>
                 </b:navBar>
             </ui:insert>
