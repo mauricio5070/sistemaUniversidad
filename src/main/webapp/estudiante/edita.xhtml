@@ -36,7 +36,7 @@
                                 <b:column medium-screen="4">
                                     <b:inputText placeholder="Identificacion"
                                                  id="identificacion"
-                                                 readonly="true"
+                                                 readonly="false"
                                                  value="#{estudianteController.idEstudiante}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
@@ -142,14 +142,17 @@
                                     <b:commandButton value="Insertar"
                                                      look="primary"
                                                      style="width: 33%"
+                                                     action="#{estudianteController.insertEstudiante()}"
                                                      ></b:commandButton>
                                     <b:commandButton value="Modificar"
                                                      look="success"
                                                      style="width: 33%"
+                                                     action="#{estudianteController.updateEstudiante()}"
                                                      ></b:commandButton>
                                     <b:commandButton value="Eliminar"
                                                      look="danger"
                                                      style="width: 33%"
+                                                     action="#{estudianteController.deleteEstudiante()}"
                                                      ></b:commandButton>
                                 </b:column>
                             </b:row>

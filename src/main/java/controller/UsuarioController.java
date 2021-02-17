@@ -32,6 +32,12 @@ public class UsuarioController extends Usuario implements Serializable {
         if (usuario != null) {
             this.setNombreUsuario(usuario.getNombreUsuario());
             this.setIdRol(usuario.getIdRol());
+//            switch(usuario.idrol()){
+//                case 1 : accesototal=true;
+//rendered en la plantill
+//                
+//            }
+//            
             return "principal.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",

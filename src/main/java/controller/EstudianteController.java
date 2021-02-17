@@ -56,4 +56,40 @@ public class EstudianteController extends Estudiante implements Serializable {
 
     }
 
+    public String insertEstudiante() {
+        if (EstudianteGestion.insertEstudiante(this)) {
+            return "list.xhtml";
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+                    "Ocurrio un error al insertar un nuevo estudiante");
+            FacesContext.getCurrentInstance().addMessage("editaEstudianteForm:identificacion", msg);
+            return "edita.xhtml";
+
+        }
+    }
+
+    public String updateEstudiante() {
+        if (EstudianteGestion.updateEstudiante(this)) {
+            return "list.xhtml";
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+                    "Ocurrio un error al modificar el estudiante");
+            FacesContext.getCurrentInstance().addMessage("editaEstudianteForm:identificacion", msg);
+            return "edita.xhtml";
+
+        }
+    }
+
+    public String deleteEstudiante() {
+        if (EstudianteGestion.deleteEstudiante(this)) {
+            return "list.xhtml";
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+                    "Ocurrio un error al eliminar el estudiante");
+            FacesContext.getCurrentInstance().addMessage("editaEstudianteForm:identificacion", msg);
+            return "edita.xhtml";
+
+        }
+    }
+
 }
