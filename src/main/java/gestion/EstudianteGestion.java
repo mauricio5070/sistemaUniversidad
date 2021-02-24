@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Conexion;
 import model.Estudiante;
+import model.YearGender;
 
 /**
  *
@@ -25,6 +26,7 @@ public class EstudianteGestion {
     private static final String SQL_INSERTESTUDIANTE = "insert into estudiante(idEstudiante,nombre,apellido1,apellido2,fechaNaci,fechaIngr,genero) VALUES (?,?,?,?,?,?,?)";
     private static final String SQL_UPDATEESTUDIANTE = "Update estudiante set nombre=?,apellido1=?,apellido2=?,fechaNaci=?,fechaIngr=?,genero=? where id=? and idEstudiante=? ";
     private static final String SQL_DELETEESTUDIANTE = "DELETE FROM estudiante where id=? and idEstudiante=?";
+    private static final String SQL_INGRESO_YEAR_GENDER = "select year(fechaIngr) as Fecha,genero,count(*) total from estudiante group by year(fechaIngr),genero order by year(fechaIngr)";
 
     //Metodo encargado de traer todos los estudiantes
     public static ArrayList<Estudiante> getEstudiantes() {
@@ -84,6 +86,29 @@ public class EstudianteGestion {
 
     }
 
+    //Metodo encargado de traer todos los YEAR GENDER from students 
+    public static ArrayList<YearGender> getIngresoYearGender() {
+        ArrayList<YearGender> lista = new ArrayList<>();
+        try {
+            PreparedStatement sentencia = Conexion.getConexion()
+                    .prepareStatement(SQL_INGRESO_YEAR_GENDER);
+            ResultSet rs = sentencia.executeQuery();
+            while (rs != null && rs.next()) {
+                lista.add(new YearGender(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3)));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EstudianteGestion.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            
+        }
+        return lista;
+
+    }
+
     public static boolean insertEstudiante(Estudiante estudiante) {
         try {
             PreparedStatement sentencia = Conexion.getConexion()
@@ -125,7 +150,7 @@ public class EstudianteGestion {
 
     public static boolean deleteEstudiante(Estudiante estudiante) {
         try {
-            
+
 //            DELETE FROM estudiante where id=? and idEstudiante=?
             PreparedStatement sentencia = Conexion.getConexion()
                     .prepareStatement(SQL_DELETEESTUDIANTE);

@@ -34,6 +34,11 @@
             <version>1.4.2</version>
             <scope>compile</scope>            
         </dependency>
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>7.0</version>           
+        </dependency>
     </dependencies>    
     <build>
         <plugins>
