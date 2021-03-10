@@ -110,6 +110,25 @@ public class Prospecto {
     public void setCelular(String celular) {
         this.celular = celular;
     }
+//Metodo ToString devuelve un JSON
 
+    @Override
+    public String toString() {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        String fecha1 = format.format(this.fechaNacimiento);
+        String fecha2 = format.format(this.fechaGraduacionColegio);
+        String fecha3 = format.format(this.fechaPosibleIngreso);
+        return "{\"Prospecto\":{\n\"cedula\":\""
+                + idProspecto + "\",\n\"nombre\":\""
+                + nombre + "\",\n\"apellido1\":\""
+                + apellido1 + "\",\n\"apellido2\":\""
+                + apellido2 + "\",\n\"fechaNacimiento\":\""
+                + fecha1 + "\",\n\"fechaGraduacionColegio\":\""
+                + fecha2 + "\",\n\"fechaPosibleIngreso\":\""
+                + fecha3 + "\",\n\"correo\":\""
+                + correo + "\",\n\"celular\":\""
+                + celular + "\"\n}\n}";
+
+    }
 
 }

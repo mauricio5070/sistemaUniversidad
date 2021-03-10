@@ -41,7 +41,7 @@ public class ProspectoGestion {
             sentencia.setString(9, prospecto.getCelular());
             return sentencia.executeUpdate() > 0;
         } catch (SQLException ex) {
-            Logger.getLogger(EstudianteGestion.class.getName()).
+            Logger.getLogger(ProspectoGestion.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
         return false;
@@ -70,7 +70,7 @@ public class ProspectoGestion {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(EstudianteGestion.class.getName()).
+            Logger.getLogger(ProspectoGestion.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
         return prospecto;
