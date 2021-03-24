@@ -99,6 +99,13 @@ public class Estudiante {
     public void setGenero(char genero) {
         this.genero = genero;
     }
-    
+
+    public String nombreCompleto() {
+        String texto = "";
+        texto += this.nombre != null ? this.nombre + " " : "";
+        texto += this.apellido1 != null ? this.apellido1 + " " : "";
+        texto += this.apellido2 != null ? this.apellido2 + " " : "";
+        return texto;
+    }
 
 }

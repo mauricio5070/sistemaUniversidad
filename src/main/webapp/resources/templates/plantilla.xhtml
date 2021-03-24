@@ -48,6 +48,13 @@
                             <b:navLink value="Json" icon-awesome="fa-newspaper-o"
                                        href="#{request.contextPath}/faces/prospecto/prospecto_json.xhtml"/>
                         </b:dropMenu>
+                        <b:dropMenu value="Certificacion" icon-awesome="fa-print" >
+                            <b:navLink value="Notas" icon-awesome="fa-newspaper-o"
+                                       href="#{request.contextPath}/faces/reportes/certificacion.xhtml"/>                           
+                        </b:dropMenu>
+                          <b:dropMenu value="Respaldos" icon-awesome="fa-print">
+                            <b:navLink value="Estudiantes" icon-awesome="fa-newspaper-o" href="#{request.contextPath}/faces/respaldo/respaldo.xhtml"/>                           
+                        </b:dropMenu> 
                     </b:navbarLinks>                    
                     <b:navbarLinks pull="right">
                         <b:dropMenu value="#{usuarioController.idUsuario}" icon-awesome="fa-group">
